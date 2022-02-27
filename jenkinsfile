@@ -1,0 +1,12 @@
+pipeline {
+	agent any
+	stages{
+	   stage("welcome to declarative pipeline scrept in groovy")
+		{
+		steps{
+		     echo "jenkins file for declerative pipeline scrept"
+			}
+		}
+
+	}
+}
