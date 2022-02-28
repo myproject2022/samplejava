@@ -1,0 +1,18 @@
+pipeline{
+  agent any
+  environment{
+    PATH = "/opt/tomcat/bin:$PATH"
+  }
+  stages{
+    stage("Git Checkout"){
+      steps{
+        git credentialsId: 'gitID', url: 'git@github.com:myproject2022/samplejava.git'
+      }
+    }
+    stage("Build Package"){
+      steps{
+        sh "mvn clean package"
+      }
+    }
+  }
+}
