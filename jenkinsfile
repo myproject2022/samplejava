@@ -1,12 +1,11 @@
 pipeline {
-	agent any
-	stages{
-	   stage("welcome to declarative pipeline scrept in groovy")
-		{
-		steps{
-		     echo "jenkins file for declerative pipeline scrept"
-			}
-		}
-
-	}
+    agent { docker 'maven:3.5-alpine' }
+    stages {
+        stage('Example Build') {
+            steps {
+                sh 'mvn --version'
+            }
+        }
+    }
 }
+
