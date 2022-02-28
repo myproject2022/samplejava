@@ -1,9 +1,9 @@
 pipeline{
     agent any
     stages{
-        stage("welcome"){
+        stage("Git Checkout"){
             steps{
-                echo 'hello this is my first pipeline script'
+                git credentialsId: 'gitID', url: 'git@github.com:myproject2022/samplejava.git'
             }
         }
     }
