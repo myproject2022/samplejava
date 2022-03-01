@@ -12,14 +12,14 @@ pipeline{
         stage("Maven Build"){
             steps{
                 sh "mvn install package"
-                sh "mv /var/lib/jenkins/workspace/decjob-1/target/*.war /var/lib/jenkins/workspace/decjob-1/target/myweb.war"
+                sh "mv /var/lib/jenkins/workspace/decjob-1/target/*.war /var/lib/jenkins/workspace/decjob-1/target/mywebapp.war"
             }
         }
         stage("Deploy-development"){
             steps{
                 sshagent(['tomcatID']) {
                     sh '''
-                    scp -o StrictHostKeyChecking=no target/myweb.war    ec2-user@172.31.18.90:/opt/tomcat/webapps/
+                    scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/decjob-1/target//mywebapp.war    ec2-user@172.31.18.90:/opt/tomcat/webapps/
                     ssh ec2-user@172.31.18.90 /opt/tomcat/bin/shutdown.sh
                     ssh ec2-user@172.31.18.90 /opt/tomcat/bin/start.sh
                     
