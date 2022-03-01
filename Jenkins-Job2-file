@@ -1,3 +1,4 @@
+currentBuild.displayName = "Jenkins-Job2-file-#"+currentBuild.number
 pipeline{
     agent any
     environment{
