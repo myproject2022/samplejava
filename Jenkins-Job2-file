@@ -13,7 +13,7 @@ pipeline{
         stage("Maven Build"){
             steps{
                 sh "mvn install package"
-                sh "mv /var/lib/jenkins/workspace/decjob-1/target/*.war /var/lib/jenkins/workspace/decjob-1/target/mywebapp.war"
+                //sh "mv /var/lib/jenkins/workspace/decjob-1/target/myweb.war /var/lib/jenkins/workspace/decjob-1/target/mywebapp.war"
             }
         }
         stage("Deploy-development"){
